@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'slug', 'email', 'password', 'profile_id', 'estado_id', 'last_session_started', 'last_session_completed'
     ];
 
     /**
@@ -43,7 +43,7 @@ class User extends Authenticatable
         return 'slug';
     }
 
-    public function state()
+    public function estado()
     {
         return $this->belongsTo('App\Estado');
     }
@@ -96,6 +96,6 @@ class User extends Authenticatable
 
     public function adminlte_profile_url()
     {
-        return 'profile/username/' . Auth::user()->id;
+        return '/perfil/' . Auth::user()->slug;
     }
 }

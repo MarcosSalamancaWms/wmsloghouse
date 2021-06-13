@@ -7,17 +7,12 @@
 @stop
 
 @section('content')
-    <x-breadcrumb-adminlte current-route="Tablero" />
+    <x-breadcrumb-adminlte current-route="Resultados de Busqueda - Sistema WMS" />
 
     <div class="container-fluid">
         <div class="row">
-            <x-small-boxs-adminlte.ventas venta-total="19,588" />
-            <x-small-boxs-adminlte.categorias numero-categorias="150" />
-            <x-small-boxs-adminlte.clientes numero-clientes="13" />
-            <x-small-boxs-adminlte.productos numero-productos="5,524" />
+
         </div>
-
-
     </div>
 
     <div style="height: 1200px;">

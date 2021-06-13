@@ -42,7 +42,8 @@ class CreateUsersTable extends Migration
             /* relacion 1 a 1 con el role del Usuario */
             /* $table->foreignId('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade'); */
 
-            $table->timestamp('last_session');/* Ultima fecha de Sesion */
+            $table->timestamp('last_session_started')->default(null)->nullable();/* Ultima fecha de Inicio de Sesion */
+            $table->timestamp('last_session_completed')->default(null)->nullable();/* Ultima fecha de Cierre de Sesion */
 
             /* $table->rememberToken(); */
 

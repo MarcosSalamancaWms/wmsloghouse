@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
+        "photo_id",
         'documento',
         'nombre',
-        "Usuario",
-        "perfil",
+        "bodega_id",
     ];
 
     public function user()
@@ -26,5 +26,10 @@ class Profile extends Model
     public function add_user($user_data)
     {
         return User::create($user_data);
+    }
+
+    public function bodega()
+    {
+        return $this->belongsTo('App\Bodega');
     }
 }

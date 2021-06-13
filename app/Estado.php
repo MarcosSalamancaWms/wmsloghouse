@@ -8,7 +8,6 @@ class Estado extends Model
 {
     protected $fillable = [
         "estado",
-        "last_session"
     ];
 
     public function user()

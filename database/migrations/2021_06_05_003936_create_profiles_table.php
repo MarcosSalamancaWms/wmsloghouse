@@ -21,12 +21,13 @@ class CreateProfilesTable extends Migration
             $table->foreign('photo_id')
                 ->references('id')
                 ->on('photos')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade')
+                ->nullable();
 
             $table->string('documento');
             $table->string('nombre');
-            $table->string("perfil");
-            $table->string("bodega");
+            $table->foreignId('bodega_id')->references('id')->on('bodegas')->onUpdate('cascade')->nullable();
             $table->timestamps();
         });
     }

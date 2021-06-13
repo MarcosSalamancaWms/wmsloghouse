@@ -10,12 +10,50 @@
 
     <hr class="mt-2">
 
-    @isset($user_authenticated)
 
-        @if (in_array('Administrativo', $roles_user))
-            <p>SI esta</p>
+
+    @isset($roles_user)
+
+
+        @if (in_array('Administrador', $roles_user))
+
+            {{-- Mostrar Alerta una vez eliminado el usuario --}}
+            @if (session('status'))
+                <script>
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Usuario Eliminado Correctamente',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2000);
+
+                </script>
+            @endif
+
+            {{-- Mostrar Alerta de Error en dado caso que se intente eliminar el usuario autenticado --}}
+            @if (session('error-user'))
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al Eliminar el Usuario',
+                        text: 'No puede Eliminarse a si mismo',
+                    })
+
+                </script>
+            @endif
+
+            <x-breadcrumb-adminlte current-route="Administrar Usuarios" />
+            <div class="d-flex justify-content-start my-3">
+                <a href="{{ route('user.create') }}" class="btn btn-primary btn-lg">Crear Nuevo Usuario <i
+                        class="fas fa-user-plus mx-1"></i></a>
+            </div>
+            <x-users.table-users :user-data="$users" />
         @else
-            <p>No esta</p>
+            <x-not-permission></x-not-permission>
         @endif
 
 
