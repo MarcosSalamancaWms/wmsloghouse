@@ -209,7 +209,7 @@
                                 </div>
                             </div>
 
-                            <hr>
+                            {{-- <hr>
                             <div class="row my-3">
                                 <div class="col-12">
                                     <label class="font-weight-bold" for="username">Nombre de usuario:</label>
@@ -224,8 +224,7 @@
                                             value="{{ old('username', $usuario->username) }}">
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> --}}
                             <hr>
                             <div class="row my-3">
                                 <div class="col-12">
@@ -317,9 +316,9 @@
                 $('#box-img-preview').html(
 
                     `
-            <p class="text-center h4">Vista Previa de la Imagen</p>
-            <img src="${reader.result}" width="140" height="140" class="d-block mx-auto" />
-                                                                                                                                `
+                    <p class="text-center h4">Vista Previa de la Imagen</p>
+                    <img src="${reader.result}" width="140" height="140" class="d-block mx-auto" />
+                                                                                                                                        `
                 );
             }
         });

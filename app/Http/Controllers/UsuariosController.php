@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Bodega;
+use App\Estado;
 use App\Http\Requests\CreateUserRequest;
 use App\Photo;
 use App\Profile;
 use App\Role;
+use App\Rules\UniqueUpdateUser;
 use App\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -122,9 +125,12 @@ class UsuariosController extends Controller
     public function edit(User $usuario)
     {
 
+        $bodegas = Bodega::all();
+
+        $estados = Estado::all();
+        /* Obtener los roles del usuario autenticado para ver si tiene permiso */
         $user_authenticated = Auth::user();
 
-        $bodegas = Bodega::all();
         foreach ($user_authenticated->roles as $role) {
             array_push($this->roles_user, $role->role_name);
         }
@@ -133,7 +139,14 @@ class UsuariosController extends Controller
 
         $roles = Role::all();
 
-        return view('pages.usuarios.editar-usuarios', compact('usuario', 'roles_user', 'roles', 'bodegas'));
+        /* Obtener los roles del usuario que queremos modificar y guardarlos en un arreglo */
+        $roles_user_for_update = [];
+
+        foreach ($usuario->roles as $role_user) {
+            array_push($roles_user_for_update, $role_user->role_name);
+        }
+
+        return view('pages.usuarios.editar-usuarios', compact('usuario', 'roles_user', 'roles', 'bodegas', 'roles_user_for_update', 'estados'));
     }
 
     public function update(Request $request, User $usuario)
@@ -144,8 +157,12 @@ class UsuariosController extends Controller
             "documento" => ['required', 'string', 'max:30'],
             "bodega" => ['required'],
             "username" => ['required', 'string', 'max:35', 'min:6'],
-            "email" => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
+            "email" => [
+                'required', 'string', 'email', 'max:255',
+                Rule::unique('users')->ignore($usuario),
+            ],
+            /* 'password' => ['required', 'string', 'min:8'], */
         ]);
 
         $profile_user = Profile::find($usuario->id);
@@ -156,7 +173,10 @@ class UsuariosController extends Controller
 
         $usuario->username = $request->username;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        /* Modificamos el estado del usuario */
+        $usuario->password = Hash::make($request->password);
+        $usuario->estado_id = $request->estado;
+
         $usuario->save();
 
         /* Capturar nuevos roles */

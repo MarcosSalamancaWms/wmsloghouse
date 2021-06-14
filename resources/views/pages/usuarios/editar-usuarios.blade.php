@@ -65,20 +65,20 @@
                     <hr>
                     <p class="h4 font-weight-bold">Datos de Acceso</p>
                     <div class="row">
-                        <div class="col-12 col-md-7 col-lg-4">
+                        <div class="col-12 col-md-5 col-lg-3">
                             <x-input-group-form reference-input="username" text="Nombre de Usuario"
                                 placeholder="Escribe el nuevo Nombre de Usuario" class-icon="fas fa-user" type="text"
                                 value="{{ old('username', $usuario->username) }}">
                             </x-input-group-form>
                         </div>
-                        <div class="col-12 col-md-5 col-lg-4">
+                        <div class="col-12 col-md-7 col-lg-4">
                             <x-input-group-form reference-input="email" text="Correo Electronico"
                                 placeholder="Escribe el nuevo Correo Electronico" class-icon="fas fa-envelope" type="text"
                                 value="{{ old('email', $usuario->email) }}">
                             </x-input-group-form>
                         </div>
 
-                        <div class="col-12 col-md-12 col-lg-4">
+                        <div class="col-12 col-md-12 col-lg-5">
                             <x-input-group-form reference-input="password" text="Contraseña"
                                 placeholder="Escribe la nueva Contraseña" class-icon="fas fa-lock" type="password"
                                 value="{{ old('password') }}">
@@ -97,11 +97,26 @@
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input"
                                         id="{{ str_replace(' ', '', $role->role_name) }}"
-                                        name="{{ str_replace(' ', '', $role->role_name) }}" value="{{ $role->id }}">
+                                        name="{{ str_replace(' ', '', $role->role_name) }}" value="{{ $role->id }}" @if (in_array($role->role_name, $roles_user_for_update)) checked @endif>
                                     <label class="custom-control-label"
                                         for="{{ str_replace(' ', '', $role->role_name) }}">{{ str_replace(' ', '', $role->role_name) }}</label>
                                 </div>
                             @endforeach
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="estado">Estado de la Cuenta:</label>
+                                <select class="custom-select" name="estado" id="estado">
+                                    @foreach ($estados as $estado)
+                                        <option value="{{ $estado->id }}" @if ($usuario->estado_id === $estado->id) selected @endif>{{ $estado->estado }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -126,6 +141,7 @@
                             </div>
                         </div>
                     </div>
+
 
 
                     <div class="row my-5">

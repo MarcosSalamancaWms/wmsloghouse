@@ -35,7 +35,6 @@ class PerfilController extends Controller
     {
         $request->validate([
             "nombre" => ['required', 'string', 'min:5', 'max:40'],
-            "username" => ['required', 'string', 'max:35', 'min:6'],
             "email" => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
             "photo" => ['image']
@@ -43,7 +42,7 @@ class PerfilController extends Controller
         $new_photo_url = '';
         $user_authenticated = User::find(Auth::user()->id);
 
-        $user_authenticated->username = $request->username;
+        /* $user_authenticated->username = $request->username; */
         $user_authenticated->password = Hash::make($request->password);
 
         /* Modificamos el Nombre del Perfil */
