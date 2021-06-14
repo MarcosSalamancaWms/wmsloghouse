@@ -33,8 +33,6 @@
                     id="form-update-data-user">
                     @csrf
                     @method('PUT')
-
-
                     <p class="h4 font-weight-bold">Datos del Usuario</p>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -59,7 +57,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
                         </div>
                     </div>
                     <hr>
@@ -77,7 +74,6 @@
                                 value="{{ old('email', $usuario->email) }}">
                             </x-input-group-form>
                         </div>
-
                         <div class="col-12 col-md-12 col-lg-5">
                             <x-input-group-form reference-input="password" text="Contraseña"
                                 placeholder="Escribe la nueva Contraseña" class-icon="fas fa-lock" type="password"
@@ -85,11 +81,7 @@
                             </x-input-group-form>
                         </div>
                     </div>
-
-
                     <hr>
-
-
                     <div class="row my-4">
                         <div class="col-12 col-lg-12">
                             <p class="h4 font-weight-bold mb-3">Selecciona los Nuevos Roles del Usuario</p>
@@ -104,8 +96,6 @@
                             @endforeach
                         </div>
                     </div>
-
-
                     <hr>
                     <div class="row">
                         <div class="col-12">
@@ -119,20 +109,19 @@
                             </div>
                         </div>
                     </div>
-
                     <hr>
                     {{-- <div class="row my-4">
-                        <div class="col-12">
-                            <p class="h4 font-weight-bold mb-3">Subir una Foto de Perfil</p>
-                            <div class="custom-file shadow rounded">
-                                <input type="file" class="custom-file-input" id="photo" lang="es" name="photo">
-                                <label class="custom-file-label" for="photo">Selecciona la imagen <span class="text-info">Peso
-                                        Máximo de
-                                        5MB</span></label>
-                                <small id="helpId" class="form-text text-muted">Peso de la Imagen: </small>
+                            <div class="col-12">
+                                <p class="h4 font-weight-bold mb-3">Subir una Foto de Perfil</p>
+                                <div class="custom-file shadow rounded">
+                                    <input type="file" class="custom-file-input" id="photo" lang="es" name="photo">
+                                    <label class="custom-file-label" for="photo">Selecciona la imagen <span class="text-info">Peso
+                                            Máximo de
+                                            5MB</span></label>
+                                    <small id="helpId" class="form-text text-muted">Peso de la Imagen: </small>
+                                </div>
                             </div>
-                        </div>
-                    </div> --}}
+                        </div> --}}
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex justify-content-center">
@@ -141,9 +130,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="row my-5">
                         <div class="col-12 d-flex justify-content-center">
                             <div class="mx-auto w-50">
@@ -153,9 +139,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </form>
             </div>
 
@@ -170,6 +153,7 @@
 @stop
 
 @section('css')
+
 
 @stop
 

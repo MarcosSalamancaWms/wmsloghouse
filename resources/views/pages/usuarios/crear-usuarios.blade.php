@@ -17,8 +17,6 @@
             <div class="container">
                 <form action="{{ route('user.store') }}" class="mt-3" method="POST" id="create-user-form-wms">
                     @csrf
-
-
                     <p class="h4 font-weight-bold">Datos del Usuario</p>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -52,15 +50,12 @@
                                 value="{{ old('email') }}">
                             </x-input-group-form>
                         </div>
-
                         <div class="col-12 col-md-12 col-lg-4">
                             <x-input-group-form reference-input="password" text="Contraseña" placeholder="Escribe la Contraseña"
                                 class-icon="fas fa-lock" type="password" value="{{ old('password') }}">
                             </x-input-group-form>
                         </div>
                     </div>
-
-
                     <hr>
                     <div class="row my-4">
                         <div class="col-12 col-lg-12">
@@ -76,10 +71,7 @@
                             @endforeach
                         </div>
                     </div>
-
                     <hr>
-
-
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex justify-content-center">
@@ -88,7 +80,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row my-5">
                         <div class="col-12 d-flex justify-content-center">
                             <div class="mx-auto w-50">
@@ -97,13 +88,13 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </form>
             </div>
 
+
+
         @else
+
             <x-not-permission></x-not-permission>
         @endif
     @endisset
@@ -116,7 +107,8 @@
 @stop
 
 @section('css')
-    <link rel='stylesheet' href='/css/admin_custom.css'>
+
+
 
 @stop
 

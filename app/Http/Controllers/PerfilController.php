@@ -74,12 +74,6 @@ class PerfilController extends Controller
             $request->file('photo')->storeAs('public/perfil', $name_save_img);
         } else {
 
-            /* if (Auth::user()->profile->photo->photo_url != 'storage/perfil/defaults/avatar_user.svg') {
-                if (Storage::exists('public/perfil/' . Auth::user()->profile->photo->photo_url)) {
-                    Storage::exists(Auth::user()->profile->photo->photo_url);
-                }
-            } */
-
             $new_photo_url = Auth::user()->profile->photo->photo_url;
         }
 

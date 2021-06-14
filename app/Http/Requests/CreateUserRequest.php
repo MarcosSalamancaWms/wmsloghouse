@@ -38,10 +38,10 @@ class CreateUserRequest extends FormRequest
     {
         return [
             "nombre" => ['required', 'string', 'min:5', 'max:40'],
-            "documento" => ['required', 'string', 'max:30'],
+            "documento" => ['required', 'string', 'max:30', 'unique:profiles,documento'],
             "bodega" => ['required'],
             "username" => ['required', 'string', 'max:35', 'min:6', 'unique:users,username'],
-            "email" => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            "email" => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8'],
             /* "photo" => ['image', 'file', 'mimes:jpeg,bmp,png'] */
 

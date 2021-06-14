@@ -25,7 +25,7 @@ class CreateProfilesTable extends Migration
                 ->onDelete('cascade')
                 ->nullable();
 
-            $table->string('documento');
+            $table->string('documento')->unique();
             $table->string('nombre');
             $table->foreignId('bodega_id')->references('id')->on('bodegas')->onUpdate('cascade')->nullable();
             $table->timestamps();

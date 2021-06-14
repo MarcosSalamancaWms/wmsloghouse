@@ -27,7 +27,8 @@
 
     <div class="container p-2 border shadow rounded">
         <div id="box-btn-edit-perfil" title="Boton para Modificar Perfil">
-            <button class="btn btn-info btn-md font-weight-bold m-2" id="btn-active-modal-for-edit-perfil">Editar Datos de
+            <button class="btn btn-info btn-md font-weight-bold m-2" id="btn-active-modal-for-edit-perfil">Editar Datos
+                de
                 mi Perfil</button>
         </div>
 
@@ -185,7 +186,8 @@
                                         <input type="file" class="custom-file-input" id="photo" lang="es" name="photo"
                                             accept="image/jpeg, image/png">
                                         <label class="custom-file-label" for="photo">Selecciona la imagen</label>
-                                        <small id="helpId" class="form-text text-muted">Por favor, subir en formato png o
+                                        <small id="helpId" class="form-text text-muted">Por favor, subir en formato png
+                                            o
                                             jpeg
                                         </small>
                                     </div>
@@ -210,21 +212,21 @@
                             </div>
 
                             {{-- <hr>
-                            <div class="row my-3">
-                                <div class="col-12">
-                                    <label class="font-weight-bold" for="username">Nombre de usuario:</label>
-                                    <div class="input-group my-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-user"></i>
+                                <div class="row my-3">
+                                    <div class="col-12">
+                                        <label class="font-weight-bold" for="username">Nombre de usuario:</label>
+                                        <div class="input-group my-2 mr-sm-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
                                             </div>
+                                            <input type="text" class="form-control shadow rounded" id="username" name="username"
+                                                placeholder="Escribe el Nuevo Nombre de Usuario"
+                                                value="{{ old('username', $usuario->username) }}">
                                         </div>
-                                        <input type="text" class="form-control shadow rounded" id="username" name="username"
-                                            placeholder="Escribe el Nuevo Nombre de Usuario"
-                                            value="{{ old('username', $usuario->username) }}">
                                     </div>
-                                </div>
-                            </div> --}}
+                                </div> --}}
                             <hr>
                             <div class="row my-3">
                                 <div class="col-12">
@@ -263,7 +265,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btn-update-data-form-perfil">Guardar Cambios</button>
+                    <button type="button" class="btn btn-primary" id="btn-update-data-form-perfil">Guardar
+                        Cambios</button>
                 </div>
             </div>
         </div>
@@ -287,10 +290,10 @@
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 @stop
 
 @section('js')
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
@@ -316,9 +319,9 @@
                 $('#box-img-preview').html(
 
                     `
-                    <p class="text-center h4">Vista Previa de la Imagen</p>
-                    <img src="${reader.result}" width="140" height="140" class="d-block mx-auto" />
-                                                                                                                                        `
+                                        <p class="text-center h4">Vista Previa de la Imagen</p>
+                                        <img src="${reader.result}" width="140" height="140" class="d-block mx-auto" />
+                                                                                                                                                            `
                 );
             }
         });

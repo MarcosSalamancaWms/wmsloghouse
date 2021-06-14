@@ -154,9 +154,9 @@ class UsuariosController extends Controller
 
         $request->validate([
             "nombre" => ['required', 'string', 'min:5', 'max:40'],
-            "documento" => ['required', 'string', 'max:30'],
+            "documento" => ['required', 'string', 'max:30', Rule::unique('profiles')->ignore($usuario)],
             "bodega" => ['required'],
-            "username" => ['required', 'string', 'max:35', 'min:6'],
+            "username" => ['required', 'string', 'max:35', 'min:6', Rule::unique('users')->ignore($usuario)],
             'password' => ['required', 'string', 'min:8'],
             "email" => [
                 'required', 'string', 'email', 'max:255',
@@ -180,26 +180,10 @@ class UsuariosController extends Controller
         $usuario->save();
 
         /* Capturar nuevos roles */
-        $roles_add_user = [];
 
-        if ($request->has('Administrador')) {
-            array_push($roles_add_user, $request->input('Administrador'));
-        }
-        if ($request->has('Vendedor')) {
-            array_push($roles_add_user, $request->input('Vendedor'));
-        }
-        if ($request->has('OperadordePiso')) {
-            array_push($roles_add_user, $request->input('OperadordePiso'));
-        }
 
-        if ($request->has('Administrativo')) {
-            array_push($roles_add_user, $request->input('Administrativo'));
-        }
-        if ($request->has('Supervisor')) {
-            array_push($roles_add_user, $request->input('Supervisor'));
-        }
-
-        $usuario->roles()->sync($roles_add_user);
+        /* Se asigna los nuevos roles para el usuario */
+        $usuario->roles()->sync($this->getRolesRequest($request));
 
         return redirect()->route('user.edit', $usuario->slug)->with('status', 'Cambios Registrados Correctamente');
     }
@@ -233,5 +217,29 @@ class UsuariosController extends Controller
 
             return redirect()->route('user.index')->with('status', 'Usuario Eliminado Correctamente');
         }
+    }
+
+    protected function getRolesRequest($request)
+    {
+        $roles_add_user = [];
+
+        if ($request->has('Administrador')) {
+            array_push($roles_add_user, $request->input('Administrador'));
+        }
+        if ($request->has('Vendedor')) {
+            array_push($roles_add_user, $request->input('Vendedor'));
+        }
+        if ($request->has('OperadordePiso')) {
+            array_push($roles_add_user, $request->input('OperadordePiso'));
+        }
+
+        if ($request->has('Administrativo')) {
+            array_push($roles_add_user, $request->input('Administrativo'));
+        }
+        if ($request->has('Supervisor')) {
+            array_push($roles_add_user, $request->input('Supervisor'));
+        }
+
+        return $roles_add_user;
     }
 }
