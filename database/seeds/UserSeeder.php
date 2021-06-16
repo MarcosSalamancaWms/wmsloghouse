@@ -47,9 +47,13 @@ class UserSeeder extends Seeder
 
 
 
-        $Photo1 = Photo::create([]);
+        $Photo1 = Photo::create([
+            'photo_url' => 'storage/perfil/defaults/avatar_user.svg'
+        ]);
 
-        $Photo2 = Photo::create([]);
+        $Photo2 = Photo::create([
+            'photo_url' => 'storage/perfil/defaults/avatar_user.svg'
+        ]);
 
         foreach ($bodegas as $bodega) {
             Bodega::create([

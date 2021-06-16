@@ -15,7 +15,7 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->text('photo_url')->default('storage/perfil/defaults/avatar_user.svg');
+            $table->text('photo_url')/* ->default('storage/perfil/defaults/avatar_user.svg')->nullable() */;/* En produccion no puedees colocar valores por defecto */
             $table->timestamps();
         });
     }

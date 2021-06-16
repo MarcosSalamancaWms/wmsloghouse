@@ -6,10 +6,10 @@ use Illuminate\View\Component;
 
 class Ventas extends Component
 {
-    public $venta;
+    public $ventaTotal;
     public function __construct($ventaTotal)
     {
-        $this->venta = $ventaTotal;
+        $this->ventaTotal = $ventaTotal;
     }
 
     /**

@@ -92,7 +92,9 @@ class UsuariosController extends Controller
         }
 
 
-        $photo_user_default = Photo::create([]);
+        $photo_user_default = Photo::create([
+            'photo_url' => 'storage/perfil/defaults/avatar_user.svg'
+        ]);
 
         $user_profile = Profile::create([
             'photo_id' => $photo_user_default->id,

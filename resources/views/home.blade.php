@@ -11,10 +11,10 @@
 
     <div class="container-fluid">
         <div class="row">
-            <x-small-boxs-adminlte.ventas venta-total="19,588" />
-            <x-small-boxs-adminlte.categorias numero-categorias="150" />
-            <x-small-boxs-adminlte.clientes numero-clientes="13" />
-            <x-small-boxs-adminlte.productos numero-productos="5,524" />
+            <x-small-boxs-ventas venta-total="19,588" />
+            <x-small-boxs-categorias numero-categorias="150" />
+            <x-small-boxs-clientes numero-clientes="13" />
+            <x-small-boxs-productos numero-productos="5,524" />
         </div>
 
 
@@ -28,11 +28,9 @@
     @section('footer')
         <x-footer-adminlte></x-footer-adminlte>
     @stop
-
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- @section('css')
 
     @stop
 
     @section('js')
-    @stop
+    @stop --}}

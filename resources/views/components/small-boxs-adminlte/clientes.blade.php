@@ -2,7 +2,7 @@
     <!-- small box -->
     <div class="small-box bg-yellow">
         <div class="inner">
-            <h3 class="text-white">{{ $clientes }}</h3>
+            <h3 class="text-white">{{ $numeroClientes }}</h3>
 
             <p class="text-white">Clientes</p>
         </div>

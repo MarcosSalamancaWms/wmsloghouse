@@ -51,7 +51,7 @@
                 <a href="{{ route('user.create') }}" class="btn btn-primary btn-lg">Crear Nuevo Usuario <i
                         class="fas fa-user-plus mx-1"></i></a>
             </div>
-            <x-users.table-users :user-data="$users" />
+            <x-table-users :user-data="$users" />
         @else
             <x-not-permission></x-not-permission>
         @endif

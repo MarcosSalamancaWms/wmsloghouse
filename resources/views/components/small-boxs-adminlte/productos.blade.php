@@ -3,7 +3,7 @@
     <!-- small box -->
     <div class="small-box bg-danger">
         <div class="inner">
-            <h3>{{ $productos }}</h3>
+            <h3>{{ $numeroProductos }}</h3>
 
             <p>Productos</p>
         </div>

@@ -2,7 +2,7 @@
     <!-- small box -->
     <div class="small-box bg-info">
         <div class="inner">
-            <h3>$ {{ $venta }}</h3>
+            <h3>$ {{ $ventaTotal }}</h3>
 
             <p>Ventas</p>
         </div>

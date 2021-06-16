@@ -1,9 +1,11 @@
+    @props(['numeroCategorias'])
+
     <!-- ./col -->
     <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>{{ $categorias }}</h3>
+                <h3>{{ $numeroCategorias }}</h3>
 
                 <p>Categorías</p>
             </div>
