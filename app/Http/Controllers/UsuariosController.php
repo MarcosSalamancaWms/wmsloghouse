@@ -210,12 +210,13 @@ class UsuariosController extends Controller
 
             /* Procedemos a eliminar los registros de este usuario */
 
-            $photo_id = Photo::find($usuario->profile->photo_id);
-
-            $photo_id = Profile::find($usuario->profile->id)->photo_id;
+            /* Eliminamos el Perfil del Usuario */
             Profile::find($usuario->profile_id)->delete();
+            /* Eliminamos la foto de perfil asociado a este usuario */
+            Photo::find($usuario->profile->photo_id)->delete();
 
-            Photo::find($photo_id)->delete();
+            /* Por ultimo eliminamos el registro principal del usuario */
+            $usuario->delete();
 
             return redirect()->route('user.index')->with('status', 'Usuario Eliminado Correctamente');
         }

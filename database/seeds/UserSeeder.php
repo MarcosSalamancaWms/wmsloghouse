@@ -98,6 +98,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('youtube3'),
             "profile_id" => $Profile1->id,
             "estado_id" => 1,
+            'session_online_status' => 0
             /* 'last_session' => Carbon::now() */
         ]);
 
@@ -108,6 +109,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('Marcos25'),
             "profile_id" => $Profile2->id,
             "estado_id" => 1,
+            'session_online_status' => 0
             /* 'last_session' => Carbon::now() */
         ]);
 

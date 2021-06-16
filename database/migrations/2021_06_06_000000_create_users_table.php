@@ -39,6 +39,9 @@ class CreateUsersTable extends Migration
                 ->on('estados')
                 ->onUpdate('cascade');
 
+            /* Este campo va a controlar el hecho de que solamente un usuario puede estar autenticado */
+            $table->string('session_online_status');
+
             /* relacion 1 a 1 con el role del Usuario */
             /* $table->foreignId('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade'); */
 
