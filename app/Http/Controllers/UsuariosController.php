@@ -224,6 +224,7 @@ class UsuariosController extends Controller
 
     protected function getRolesRequest($request)
     {
+        /* Para obtener los roles */
         $roles_add_user = [];
 
         if ($request->has('Administrador')) {
